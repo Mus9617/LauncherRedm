@@ -1,3 +1,4 @@
+// @language JavaScript
 document.getElementById('selectCache').addEventListener('click', async () => {
     const cachePath = await window.electron.openDialog();
     if (cachePath) alert(`Ruta de Cache seleccionada: ${cachePath}`);
