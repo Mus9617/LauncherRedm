@@ -1,8 +1,8 @@
 
+*.html linguist-detectable=true
+*.js linguist-detectable=true
+*.css linguist-detectable=true
+*.json linguist-detectable=true
 *.dll linguist-vendored
 *.pak linguist-vendored
-
-
-*.js linguist-language=JavaScript
-*.json linguist-language=JavaScript
-*.html linguist-language=HTML
+*.bin linguist-vendored
