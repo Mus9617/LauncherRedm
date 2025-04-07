@@ -1,3 +1,8 @@
+
 *.dll linguist-vendored
 *.pak linguist-vendored
+
+
 *.js linguist-language=JavaScript
+*.json linguist-language=JavaScript
+*.html linguist-language=HTML

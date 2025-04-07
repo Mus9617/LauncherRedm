@@ -2,7 +2,7 @@
   "name": "redencionlauncher",
   "version": "1.0.0",
   "description": "Launcher para RedM",
-  "main": "main.js",
+  "main": "scripts/main.js",
   "scripts": {
     "start": "electron .",
     "package-win": "electron-packager . RedencionLauncher --platform=win32 --arch=x64 --icon=icon.ico --out=build --overwrite"
