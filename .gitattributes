@@ -1,4 +1,2 @@
-*.js linguist-detectable=true
-*.json linguist-detectable=true
-*.html linguist-detectable=false
-*.json linguist-detectable=true
+*.dll linguist-vendored
+*.pak linguist-vendored
