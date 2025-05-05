@@ -7,6 +7,7 @@ Este proyecto es un **Launcher personalizado para RedM** que incluye diversas fu
 - ✅ Conexión automática a un servidor RedM mediante IP.
 - ✅ Borrado seguro de la carpeta de caché.
 - ✅ Interfaz moderna y adaptable.
+- ✅ Conexión automática a un servidor mediante IP (con cifrado AES aplicado internamente para mayor privacidad).
 
 ---
 
