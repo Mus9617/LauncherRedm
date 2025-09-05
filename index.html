@@ -1,58 +1,48 @@
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="css/index.css">
-<head>
-    <title>RedLauncher</title>
-   
-</head>
-<body>
-    <div id="videoContainer">
-        <video id="videoPlayer" autoplay loop>
-            <source src="video.mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
-    </div>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redención Launcher</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <button id="addPathBtn" class="btn corner tl">Añadir Ruta</button>
+    <button id="clearCacheBtn" class="btn corner tr">Borrar Caché</button>
+    <button id="connectBtn" class="btn corner bl">Conectar al Servidor</button>
+    <button id="creditsBtn" class="btn corner br">Creado por Zowix 🐱</button>
 
-    <button id="addPathBtn">Añadir Ruta</button>
-    <button id="clearCacheBtn">Borrar Caché</button>
-    <button id="connectBtn">Conectar al Servidor</button>
-    <button id="creditsBtn">Creado por Zowix 🐱</button>
-
-    
-    <div id="volumeControl">
-        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.3">
+    <div id="overlay">
+      <div class="overlay-card">
+        <div class="loader"></div>
+        Conectando… el launcher se cerrará automáticamente.
+      </div>
     </div>
 
     <script>
-        
-        const videoPlayer = document.getElementById('videoPlayer');
-        const volumeSlider = document.getElementById('volumeSlider');
+      const overlay = document.getElementById("overlay");
 
-        videoPlayer.volume = 0.3;
+      document.getElementById("addPathBtn").onclick = async () => {
+        const p = await window.electronAPI.selectCache();
+        if (p) alert("Ruta seleccionada: " + p);
+      };
 
-        
-        volumeSlider.addEventListener('input', (event) => {
-            videoPlayer.volume = event.target.value;
-        });
+      document.getElementById("clearCacheBtn").onclick = async () => {
+        const ok = await window.electronAPI.clearCache();
+        alert(
+          ok ? "Caché borrada correctamente." : "No se pudo borrar la caché."
+        );
+      };
 
-        document.getElementById('addPathBtn').addEventListener('click', async () => {
-            const result = await window.electronAPI.selectCache();
-            if (result) alert('Ruta seleccionada: ' + result);
-        });
+      document.getElementById("connectBtn").onclick = async () => {
+        overlay.classList.add("show");
+        const ok = await window.electronAPI.connectToServer();
+        if (!ok) overlay.classList.remove("show");
+      };
 
-        document.getElementById('clearCacheBtn').addEventListener('click', async () => {
-            const success = await window.electronAPI.clearCache();
-            alert(success ? 'Caché borrada correctamente.' : 'No se pudo borrar la caché.');
-        });
-
-        document.getElementById('connectBtn').addEventListener('click', async () => {
-            const success = await window.electronAPI.connectToServer();
-            alert(success ? 'Conectando al servidor...' : 'No se pudo conectar.');
-        });
-
-        document.getElementById('creditsBtn').addEventListener('click', () => {
-            alert('Creado por Zowix 🐱');
-        });
+      document.getElementById("creditsBtn").onclick = () => {
+        alert("Creado por Zowix 🐱");
+      };
     </script>
-</body>
+  </body>
 </html>

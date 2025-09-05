@@ -1,1 +1,261 @@
-const a0_0x12ebd0=a0_0x2f0c;function a0_0x9523(){const _0x2f18ae=['canceled','select-cache','48bQYMuB','\x20-\x20','electron','base64','forEach','loadFile','parse','utf8','No\x20se\x20pudo\x20borrar\x20la\x20carpeta:\x20','index.html','No\x20se\x20pudo\x20encontrar\x20RedM\x20instalado\x20en\x20el\x20sistema.','RedM.exe','preload.js','stringify','930136GMDpPE','whenReady','filePaths','message','quit','4289943mHSaqD','42uhQVxO','602884QtVNTi','24777jBjVBJ','LOCALAPPDATA','activate','No\x20se\x20pudo\x20borrar\x20el\x20archivo:\x20','254525epDHdv','child_process','length','clear-cache','config.json','error','darwin','connect-server','openDirectory','join','12345678901234567890123456789012','+connect','then','181128EsBuIZ','createDecipheriv','existsSync','readFileSync','writeFileSync','4917130NcRqAI','handle','RedM\x20lanzado\x20con\x20IP\x20desencriptada.','1864UqoDHt','Cache\x20borrada\x20correctamente.','window-all-closed','getAllWindows','ignore','platform','final'];a0_0x9523=function(){return _0x2f18ae;};return a0_0x9523();}function a0_0x2f0c(_0x5d4688,_0x479fa6){const _0x9523ff=a0_0x9523();return a0_0x2f0c=function(_0x2f0cbc,_0x5be53d){_0x2f0cbc=_0x2f0cbc-0x1bb;let _0x295eb9=_0x9523ff[_0x2f0cbc];return _0x295eb9;},a0_0x2f0c(_0x5d4688,_0x479fa6);}(function(_0x2161f1,_0x5dc0ed){const _0x3f4f5e=a0_0x2f0c,_0x3d4425=_0x2161f1();while(!![]){try{const _0xc358b=parseInt(_0x3f4f5e(0x1da))/0x1+parseInt(_0x3f4f5e(0x1d3))/0x2+parseInt(_0x3f4f5e(0x1d9))/0x3*(-parseInt(_0x3f4f5e(0x1ec))/0x4)+parseInt(_0x3f4f5e(0x1df))/0x5*(parseInt(_0x3f4f5e(0x1c5))/0x6)+-parseInt(_0x3f4f5e(0x1d8))/0x7+parseInt(_0x3f4f5e(0x1bc))/0x8*(parseInt(_0x3f4f5e(0x1db))/0x9)+-parseInt(_0x3f4f5e(0x1f1))/0xa;if(_0xc358b===_0x5dc0ed)break;else _0x3d4425['push'](_0x3d4425['shift']());}catch(_0x156750){_0x3d4425['push'](_0x3d4425['shift']());}}}(a0_0x9523,0x5c513));const {app,BrowserWindow,ipcMain,dialog}=require(a0_0x12ebd0(0x1c7)),fs=require('fs'),path=require('path'),{spawn}=require(a0_0x12ebd0(0x1e0)),crypto=require('crypto');let mainWindow;function createWindow(){const _0x302c8f=a0_0x12ebd0;mainWindow=new BrowserWindow({'width':0x320,'height':0x258,'webPreferences':{'preload':path[_0x302c8f(0x1e8)](__dirname,_0x302c8f(0x1d1)),'contextIsolation':!![],'nodeIntegration':!![],'enableRemoteModule':!![],'webSecurity':![],'allowRunningInsecureContent':!![]}}),mainWindow[_0x302c8f(0x1ca)](_0x302c8f(0x1ce));}app[a0_0x12ebd0(0x1d4)]()[a0_0x12ebd0(0x1eb)](()=>{const _0x333d28=a0_0x12ebd0;createWindow(),app['on'](_0x333d28(0x1dd),()=>{const _0x7d818=_0x333d28;if(BrowserWindow[_0x7d818(0x1bf)]()['length']===0x0)createWindow();});}),app['on'](a0_0x12ebd0(0x1be),()=>{const _0x2c2db3=a0_0x12ebd0;if(process[_0x2c2db3(0x1c1)]!==_0x2c2db3(0x1e5))app[_0x2c2db3(0x1d7)]();});function findRedMPath(){const _0x3203e7=a0_0x12ebd0,_0x3f065f=process['env'][_0x3203e7(0x1dc)],_0x554aeb=path[_0x3203e7(0x1e8)](_0x3f065f,'RedM',_0x3203e7(0x1d0));return fs[_0x3203e7(0x1ee)](_0x554aeb)?_0x554aeb:null;}function deleteFolderRecursive(_0x1dadfe){const _0x2b2b63=a0_0x12ebd0;if(fs[_0x2b2b63(0x1ee)](_0x1dadfe)){fs['readdirSync'](_0x1dadfe)[_0x2b2b63(0x1c9)](_0x2ace54=>{const _0x406852=_0x2b2b63,_0x4acf4b=path[_0x406852(0x1e8)](_0x1dadfe,_0x2ace54);if(fs['lstatSync'](_0x4acf4b)['isDirectory']())deleteFolderRecursive(_0x4acf4b);else try{fs['unlinkSync'](_0x4acf4b);}catch(_0x5b6ab2){console[_0x406852(0x1e4)](_0x406852(0x1de)+_0x4acf4b+_0x406852(0x1c6)+_0x5b6ab2[_0x406852(0x1d6)]);}});try{fs['rmdirSync'](_0x1dadfe,{'recursive':!![]}),console['log'](_0x2b2b63(0x1bd));}catch(_0x92aa2e){console[_0x2b2b63(0x1e4)](_0x2b2b63(0x1cd)+_0x1dadfe+_0x2b2b63(0x1c6)+_0x92aa2e[_0x2b2b63(0x1d6)]);}}}ipcMain[a0_0x12ebd0(0x1f2)](a0_0x12ebd0(0x1c4),async()=>{const _0x39ade8=a0_0x12ebd0,_0x508b21=await dialog['showOpenDialog']({'properties':[_0x39ade8(0x1e7)]});if(!_0x508b21[_0x39ade8(0x1c3)]&&_0x508b21[_0x39ade8(0x1d5)][_0x39ade8(0x1e1)]>0x0){const _0x5f1dc0=path[_0x39ade8(0x1e8)](__dirname,_0x39ade8(0x1e3));return fs[_0x39ade8(0x1f0)](_0x5f1dc0,JSON[_0x39ade8(0x1d2)]({'cachePath':_0x508b21[_0x39ade8(0x1d5)][0x0]},null,0x2)),_0x508b21[_0x39ade8(0x1d5)][0x0];}return null;}),ipcMain[a0_0x12ebd0(0x1f2)](a0_0x12ebd0(0x1e2),async()=>{const _0x1c3899=a0_0x12ebd0,_0x404674=path['join'](__dirname,_0x1c3899(0x1e3));if(fs[_0x1c3899(0x1ee)](_0x404674)){const {cachePath:_0x3601a9}=JSON[_0x1c3899(0x1cb)](fs[_0x1c3899(0x1ef)](_0x404674));if(fs[_0x1c3899(0x1ee)](_0x3601a9))try{return deleteFolderRecursive(_0x3601a9),!![];}catch(_0x189c40){return console[_0x1c3899(0x1e4)]('Error\x20al\x20intentar\x20borrar\x20la\x20cache:\x20'+_0x189c40[_0x1c3899(0x1d6)]),![];}}return![];}),ipcMain[a0_0x12ebd0(0x1f2)](a0_0x12ebd0(0x1e6),async()=>{const _0x5cf3ef=a0_0x12ebd0,_0x572aa6=findRedMPath();if(!_0x572aa6)return console[_0x5cf3ef(0x1e4)](_0x5cf3ef(0x1cf)),![];const _0x18c055=_0x5cf3ef(0x1e9),_0x5a1f63='1234567890123456',_0x33c9e7='FlrrICpARIW9M1p/7jLGCg==';try{const _0x16d3c0=crypto[_0x5cf3ef(0x1ed)]('aes-256-cbc',_0x18c055,_0x5a1f63);let _0x35f7f3=_0x16d3c0['update'](_0x33c9e7,_0x5cf3ef(0x1c8),_0x5cf3ef(0x1cc));return _0x35f7f3+=_0x16d3c0[_0x5cf3ef(0x1c2)]('utf8'),spawn(_0x572aa6,[_0x5cf3ef(0x1ea),_0x35f7f3],{'detached':!![],'stdio':_0x5cf3ef(0x1c0)})['unref'](),console['log'](_0x5cf3ef(0x1bb)),!![];}catch(_0xc509a5){return console[_0x5cf3ef(0x1e4)]('Error\x20al\x20desencriptar\x20o\x20lanzar\x20RedM:',_0xc509a5),![];}});
+const a0_0x12ebd0 = a0_0x2f0c;
+function a0_0x9523() {
+  const _0x2f18ae = [
+    "canceled",
+    "select-cache",
+    "48bQYMuB",
+    "\x20-\x20",
+    "electron",
+    "base64",
+    "forEach",
+    "loadFile",
+    "parse",
+    "utf8",
+    "No\x20se\x20pudo\x20borrar\x20la\x20carpeta:\x20",
+    "index.html",
+    "No\x20se\x20pudo\x20encontrar\x20RedM\x20instalado\x20en\x20el\x20sistema.",
+    "RedM.exe",
+    "preload.js",
+    "stringify",
+    "930136GMDpPE",
+    "whenReady",
+    "filePaths",
+    "message",
+    "quit",
+    "4289943mHSaqD",
+    "42uhQVxO",
+    "602884QtVNTi",
+    "24777jBjVBJ",
+    "LOCALAPPDATA",
+    "activate",
+    "No\x20se\x20pudo\x20borrar\x20el\x20archivo:\x20",
+    "254525epDHdv",
+    "child_process",
+    "length",
+    "clear-cache",
+    "config.json",
+    "error",
+    "darwin",
+    "connect-server",
+    "openDirectory",
+    "join",
+    "12345678901234567890123456789012",
+    "+connect",
+    "then",
+    "181128EsBuIZ",
+    "createDecipheriv",
+    "existsSync",
+    "readFileSync",
+    "writeFileSync",
+    "4917130NcRqAI",
+    "handle",
+    "RedM\x20lanzado\x20con\x20IP\x20desencriptada.",
+    "1864UqoDHt",
+    "Cache\x20borrada\x20correctamente.",
+    "window-all-closed",
+    "getAllWindows",
+    "ignore",
+    "platform",
+    "final",
+  ];
+  a0_0x9523 = function () {
+    return _0x2f18ae;
+  };
+  return a0_0x9523();
+}
+function a0_0x2f0c(_0x5d4688, _0x479fa6) {
+  const _0x9523ff = a0_0x9523();
+  return (
+    (a0_0x2f0c = function (_0x2f0cbc, _0x5be53d) {
+      _0x2f0cbc = _0x2f0cbc - 0x1bb;
+      let _0x295eb9 = _0x9523ff[_0x2f0cbc];
+      return _0x295eb9;
+    }),
+    a0_0x2f0c(_0x5d4688, _0x479fa6)
+  );
+}
+(function (_0x2161f1, _0x5dc0ed) {
+  const _0x3f4f5e = a0_0x2f0c,
+    _0x3d4425 = _0x2161f1();
+  while (!![]) {
+    try {
+      const _0xc358b =
+        parseInt(_0x3f4f5e(0x1da)) / 0x1 +
+        parseInt(_0x3f4f5e(0x1d3)) / 0x2 +
+        (parseInt(_0x3f4f5e(0x1d9)) / 0x3) *
+          (-parseInt(_0x3f4f5e(0x1ec)) / 0x4) +
+        (parseInt(_0x3f4f5e(0x1df)) / 0x5) *
+          (parseInt(_0x3f4f5e(0x1c5)) / 0x6) +
+        -parseInt(_0x3f4f5e(0x1d8)) / 0x7 +
+        (parseInt(_0x3f4f5e(0x1bc)) / 0x8) *
+          (parseInt(_0x3f4f5e(0x1db)) / 0x9) +
+        -parseInt(_0x3f4f5e(0x1f1)) / 0xa;
+      if (_0xc358b === _0x5dc0ed) break;
+      else _0x3d4425["push"](_0x3d4425["shift"]());
+    } catch (_0x156750) {
+      _0x3d4425["push"](_0x3d4425["shift"]());
+    }
+  }
+})(a0_0x9523, 0x5c513);
+const { app, BrowserWindow, ipcMain, dialog } = require(a0_0x12ebd0(0x1c7)),
+  fs = require("fs"),
+  path = require("path"),
+  { spawn } = require(a0_0x12ebd0(0x1e0)),
+  crypto = require("crypto");
+let mainWindow;
+function createWindow() {
+  const _0x302c8f = a0_0x12ebd0;
+  (mainWindow = new BrowserWindow({
+    width: 0x320,
+    height: 0x258,
+    icon: path[_0x302c8f(0x1e8)](__dirname, 'icon.ico'), // ← AÑADIDO: favicon de la ventana
+    webPreferences: {
+      preload: path[_0x302c8f(0x1e8)](__dirname, _0x302c8f(0x1d1)),
+      contextIsolation: !![],
+      nodeIntegration: !![],
+      enableRemoteModule: !![],
+      webSecurity: ![],
+      allowRunningInsecureContent: !![],
+    },
+  })),
+    mainWindow[_0x302c8f(0x1ca)](_0x302c8f(0x1ce));
+}
+app[a0_0x12ebd0(0x1d4)]()[a0_0x12ebd0(0x1eb)](() => {
+  const _0x333d28 = a0_0x12ebd0;
+  createWindow(),
+    app["on"](_0x333d28(0x1dd), () => {
+      const _0x7d818 = _0x333d28;
+      if (BrowserWindow[_0x7d818(0x1bf)]()["length"] === 0x0) createWindow();
+    });
+}),
+  app["on"](a0_0x12ebd0(0x1be), () => {
+    const _0x2c2db3 = a0_0x12ebd0;
+    if (process[_0x2c2db3(0x1c1)] !== _0x2c2db3(0x1e5)) app[_0x2c2db3(0x1d7)]();
+  });
+function findRedMPath() {
+  const _0x3203e7 = a0_0x12ebd0,
+    _0x3f065f = process["env"][_0x3203e7(0x1dc)],
+    _0x554aeb = path[_0x3203e7(0x1e8)](_0x3f065f, "RedM", _0x3203e7(0x1d0));
+  return fs[_0x3203e7(0x1ee)](_0x554aeb) ? _0x554aeb : null;
+}
+function deleteFolderRecursive(_0x1dadfe) {
+  const _0x2b2b63 = a0_0x12ebd0;
+  if (fs[_0x2b2b63(0x1ee)](_0x1dadfe)) {
+    fs["readdirSync"](_0x1dadfe)[_0x2b2b63(0x1c9)]((_0x2ace54) => {
+      const _0x406852 = _0x2b2b63,
+        _0x4acf4b = path[_0x406852(0x1e8)](_0x1dadfe, _0x2ace54);
+      if (fs["lstatSync"](_0x4acf4b)["isDirectory"]())
+        deleteFolderRecursive(_0x4acf4b);
+      else
+        try {
+          fs["unlinkSync"](_0x4acf4b);
+        } catch (_0x5b6ab2) {
+          console[_0x406852(0x1e4)](
+            _0x406852(0x1de) +
+              _0x4acf4b +
+              _0x406852(0x1c6) +
+              _0x5b6ab2[_0x406852(0x1d6)]
+          );
+        }
+    });
+    try {
+      fs["rmdirSync"](_0x1dadfe, { recursive: !![] }),
+        console["log"](_0x2b2b63(0x1bd));
+    } catch (_0x92aa2e) {
+      console[_0x2b2b63(0x1e4)](
+        _0x2b2b63(0x1cd) +
+          _0x1dadfe +
+          _0x2b2b63(0x1c6) +
+          _0x92aa2e[_0x2b2b63(0x1d6)]
+      );
+    }
+  }
+}
+ipcMain[a0_0x12ebd0(0x1f2)](a0_0x12ebd0(0x1c4), async () => {
+  const _0x39ade8 = a0_0x12ebd0,
+    _0x508b21 = await dialog["showOpenDialog"]({
+      properties: [_0x39ade8(0x1e7)],
+    });
+  if (
+    !_0x508b21[_0x39ade8(0x1c3)] &&
+    _0x508b21[_0x39ade8(0x1d5)][_0x39ade8(0x1e1)] > 0x0
+  ) {
+    const _0x5f1dc0 = path[_0x39ade8(0x1e8)](__dirname, _0x39ade8(0x1e3));
+    return (
+      fs[_0x39ade8(0x1f0)](
+        _0x5f1dc0,
+        JSON[_0x39ade8(0x1d2)](
+          { cachePath: _0x508b21[_0x39ade8(0x1d5)][0x0] },
+          null,
+          0x2
+        )
+      ),
+      _0x508b21[_0x39ade8(0x1d5)][0x0]
+    );
+  }
+  return null;
+}),
+  ipcMain[a0_0x12ebd0(0x1f2)](a0_0x12ebd0(0x1e2), async () => {
+    const _0x1c3899 = a0_0x12ebd0,
+      _0x404674 = path["join"](__dirname, _0x1c3899(0x1e3));
+    if (fs[_0x1c3899(0x1ee)](_0x404674)) {
+      const { cachePath: _0x3601a9 } = JSON[_0x1c3899(0x1cb)](
+        fs[_0x1c3899(0x1ef)](_0x404674)
+      );
+      if (fs[_0x1c3899(0x1ee)](_0x3601a9))
+        try {
+          return deleteFolderRecursive(_0x3601a9), !![];
+        } catch (_0x189c40) {
+          return (
+            console[_0x1c3899(0x1e4)](
+              "Error\x20al\x20intentar\x20borrar\x20la\x20cache:\x20" +
+                _0x189c40[_0x1c3899(0x1d6)]
+            ),
+            ![]
+          );
+        }
+    }
+    return ![];
+  });
+
+ipcMain[a0_0x12ebd0(0x1f2)](a0_0x12ebd0(0x1e6), async () => {
+  const _0x5cf3ef = a0_0x12ebd0,
+    _0x572aa6 = findRedMPath();
+  if (!_0x572aa6) return console[_0x5cf3ef(0x1e4)](_0x5cf3ef(0x1cf)), ![];
+
+  const _0x18c055 = _0x5cf3ef(0x1e9),
+    _0x5a1f63 = "1234567890123456",
+    _0x33c9e7 = "FlrrICpARIW9M1p/7jLGCg==";
+
+  try {
+    const _0x16d3c0 = crypto[_0x5cf3ef(0x1ed)](
+      "aes-256-cbc",
+      _0x18c055,
+      _0x5a1f63
+    );
+    let _0x35f7f3 = _0x16d3c0["update"](
+      _0x33c9e7,
+      _0x5cf3ef(0x1c8),
+      _0x5cf3ef(0x1cc)
+    );
+    _0x35f7f3 += _0x16d3c0[_0x5cf3ef(0x1c2)]("utf8");
+
+    spawn(_0x572aa6, [_0x5cf3ef(0x1ea), _0x35f7f3], {
+      detached: !![],
+      stdio: _0x5cf3ef(0x1c0),
+    })["unref"]();
+
+    console["log"](_0x5cf3ef(0x1bb));
+    return !![];
+  } catch (_0xc509a5) {
+    console[_0x5cf3ef(0x1e4)](
+      "Error al desencriptar o lanzar RedM:",
+      _0xc509a5
+    );
+    return ![];
+  } finally {
+    setTimeout(() => {
+      app.quit();
+    }, 800);
+  }
+});

@@ -1,56 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root{
+  --bg:#0B0D12;
+  --amber:#F59E0B;  
+  --cyan:#22D3EE;   
+  --ink:#E5E7EB;
+  --glass:rgba(255,255,255,.08);
+  --glass2:rgba(255,255,255,.04);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
-#videoContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+*{box-sizing:border-box}
+html,body{
+  margin:0; padding:0; width:100%; height:100%; overflow:hidden;
+  color:var(--ink);
+  font-family: Roboto, system-ui, Segoe UI, Arial, sans-serif;
+  background: var(--bg) url("../redencion.gif") center/cover no-repeat fixed;
 }
 
-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none;
+  background:
+    radial-gradient(1200px 800px at 20% 90%, rgba(245,158,11,.07), transparent 60%),
+    radial-gradient(1000px 700px at 80% 95%, rgba(34,211,238,.06), transparent 55%),
+    radial-gradient(ellipse at 50% 120%, rgba(0,0,0,.55), transparent 45%),
+    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.65));
 }
 
-button {
-    position: absolute;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    font-size: 14px;
-    z-index: 1;
+/* Botón base */
+.btn{
+  padding:12px 22px; border:none; border-radius:14px; cursor:pointer;
+  color:#F8FAFC; font-size:15px; font-weight:700; letter-spacing:.4px;
+  background: linear-gradient(180deg, var(--glass), var(--glass2));
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow: var(--shadow), 0 0 12px rgba(34,211,238,.16);
+  backdrop-filter: blur(6px);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.btn:hover{
+  transform:translateY(-1px);
+  border-color: rgba(34,211,238,.45);
+  box-shadow: var(--shadow), 0 0 18px rgba(34,211,238,.32);
 }
 
-#addPathBtn { top: 20px; left: 20px; }
-#clearCacheBtn { top: 20px; right: 20px; }
-#connectBtn { bottom: 20px; left: 20px; }
-#creditsBtn { bottom: 20px; right: 20px; }
+
+.corner{ position:fixed; z-index:2; }
+.tl{ top:28px; left:28px; }       
+.tr{ top:28px; right:28px; }      
+.bl{ bottom:28px; left:28px; }   
+.br{ bottom:28px; right:28px; }  
 
 
-
-#volumeControl {
-position: absolute;
-bottom: 20px;  
-left: 50%;
-transform: translateX(-50%); 
-z-index: 2;
-width: 150px;  
+#addPathBtn{ border-color: rgba(245,158,11,.5); box-shadow: var(--shadow), 0 0 14px rgba(245,158,11,.28); }
+#clearCacheBtn{ border-color: rgba(34,211,238,.45); }
+#connectBtn{
+  border-color: rgba(34,211,238,.55);
+  box-shadow: var(--shadow), 0 0 18px rgba(34,211,238,.4);
 }
+#creditsBtn{ border-color: rgba(245,158,11,.45); }
 
-#volumeControl input {
-width: 100%; 
+
+#overlay{
+  position:fixed; inset:0; z-index:50; display:flex; align-items:center; justify-content:center;
+  background: rgba(2,6,23,.65); backdrop-filter: blur(4px);
+  opacity:0; pointer-events:none; transition: opacity .25s ease;
+}
+#overlay.show{ opacity:1; pointer-events:auto; }
+
+.overlay-card{
+  padding:20px 24px; border-radius:16px;
+  border:1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, var(--glass), var(--glass2));
+  color:#fff; text-align:center; letter-spacing:.5px;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+}
+.loader{
+  width:56px; height:56px; border-radius:50%;
+  border:3px solid rgba(34,211,238,.25);
+  border-top-color: var(--cyan);
+  animation: spin 1s linear infinite;
+  margin: 0 auto 12px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+
+@media (max-width: 860px){
+  .tl{ top:18px; left:18px; }
+  .tr{ top:18px; right:18px; }
+  .bl{ bottom:18px; left:18px; }
+  .br{ bottom:18px; right:18px; }
+  .btn{ font-size:14px; padding:10px 18px; }
 }
