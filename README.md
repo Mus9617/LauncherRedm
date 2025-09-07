@@ -1,46 +1,64 @@
+# RedencionLauncher - Launcher para RedM
 
-# 🌟 RedencionLauncher - Launcher para RedM 🌟
-
-Este proyecto es un **Launcher personalizado para RedM** que incluye diversas funcionalidades como:
-
-- ✅ Reproducción de video de fondo (`video.mp4`).
-- ✅ Conexión automática a un servidor RedM mediante IP.
-- ✅ Borrado seguro de la carpeta de caché.
-- ✅ Interfaz moderna y adaptable.
-- ✅ Conexión automática a un servidor mediante IP (con cifrado AES aplicado internamente para mayor privacidad).
+**RedencionLauncher** es un launcher personalizado para **RedM**, diseñado para simplificar la conexión a servidores y optimizar la experiencia de los jugadores.  
+Incluye funcionalidades de gestión de caché, conexión automática y una interfaz moderna que se adapta a las necesidades del usuario.
 
 ---
 
-## 📂 Estructura del Proyecto
+## Características principales
+
+- Reproducción de fondo mediante video o GIF animado.  
+- Conexión automática a un servidor RedM mediante IP.  
+- Borrado seguro de la carpeta de caché.  
+- Interfaz moderna, adaptable y fácil de usar.  
+- Cifrado AES interno para proteger la conexión al servidor.  
+- Autocierre del launcher tras iniciar RedM.  
+
+---
+
+## Novedades de la versión final (v1.0.2)
+
+- Reemplazo del video por un **GIF optimizado** para mejorar el rendimiento.  
+- Inclusión de un **ícono personalizado para Windows**.  
+- Rediseño de la interfaz con un estilo más futurista y coherente.  
+- Reubicación de botones para mejorar la usabilidad.  
+- Mejoras en la función de borrado de caché.  
+- Implementación del cierre automático del launcher después de conectar al servidor.  
+
+---
+
+## Estructura del proyecto
 
 ```
 RedencionLauncher/
 ├── main.js             # Archivo principal de Electron (back-end)
 ├── preload.js          # Comunicación entre front-end y back-end
 ├── index.html          # Interfaz de usuario (front-end)
-├── package.json        # Configuración de dependencias y scripts de Electron
-├── video.mp4           # Video de fondo que se reproduce al iniciar el Launcher
+├── package.json        # Configuración de dependencias y scripts
+├── gif-background.gif  # Fondo animado optimizado (antes video.mp4)
+├── icon.ico            # Ícono personalizado para Windows
 ├── node_modules/       # Dependencias instaladas
 ├── build/              # Carpeta generada tras la compilación
+├── config.json         # Configuración (ruta de caché y otros datos)
 ```
 
 ---
 
-## 📦 Instalación
+## Instalación
 
-### 1. Clonar el Repositorio
-```
-git clone https://github.com/Mus9617/LauncherRedm.git
-```
+1. **Clonar el repositorio**  
+   ```bash
+   git clone https://github.com/Mus9617/LauncherRedm.git
+   ```
 
-### 2. Instalar Dependencias
-```bash
-npm install
-```
+2. **Instalar dependencias**  
+   ```bash
+   npm install
+   ```
 
 ---
 
-## 🔨 Uso en Desarrollo
+## Uso en desarrollo
 
 Para ejecutar el launcher en modo desarrollo:
 ```bash
@@ -49,29 +67,28 @@ npm run start
 
 ---
 
-## 📦 Empaquetado para Windows
+## Empaquetado para Windows
 
 Para compilar el launcher en Windows:
-
 ```bash
 npm run package-win
 ```
 
-Esto generará un ejecutable en la carpeta `build/`.
+El ejecutable se generará en la carpeta `build/`.
 
 ---
 
-## 📁 Configuración en `package.json`
+## Configuración en `package.json`
 
 ```json
 {
   "name": "RedencionLauncher",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Launcher para RedM",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package-win": "electron-packager . RedencionLauncher --platform=win32 --arch=x64 --icon=icon.ico --out=build --overwrite --extra-resource=video.mp4"
+    "package-win": "electron-packager . RedencionLauncher --platform=win32 --arch=x64 --icon=icon.ico --out=build --overwrite --extra-resource=gif-background.gif"
   },
   "devDependencies": {
     "electron": "^25.3.0",
@@ -82,33 +99,6 @@ Esto generará un ejecutable en la carpeta `build/`.
 
 ---
 
-## 🚀 Cómo Asegurarte que el Video Funciona
+## Licencia
 
-- El archivo `video.mp4` debe estar en la raíz del proyecto.
-- Si no se reproduce, asegúrate de que el `main.js` tenga configurado:
-```javascript
-webSecurity: false,
-allowRunningInsecureContent: true
-```
-- Usa siempre la ruta `src="video.mp4"` en tu `index.html`.
-
----
-
-## ❌ Problemas Comunes
-
-1. **El video no se ve:**
-   - Asegúrate de que el archivo `video.mp4` está en la raíz.
-   - Confirma que tu `main.js` permite `webSecurity: false`.
-
-2. **El cache no se borra:**
-   - Ejecuta el launcher con permisos de administrador.
-   - Asegúrate de que ningún otro programa esté utilizando esos archivos.
-
-3. **No se conecta al servidor RedM:**
-   - Asegúrate de que la IP del servidor esté correctamente configurada en `main.js`.
-
----
-
-## 📜 Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
