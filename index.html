@@ -2,47 +2,15 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Redención Launcher</title>
+    <title>REDENCION</title>
     <link rel="stylesheet" href="css/index.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <button id="addPathBtn" class="btn corner tl">Añadir Ruta</button>
-    <button id="clearCacheBtn" class="btn corner tr">Borrar Caché</button>
-    <button id="connectBtn" class="btn corner bl">Conectar al Servidor</button>
-    <button id="creditsBtn" class="btn corner br">Creado por Zowix 🐱</button>
-
-    <div id="overlay">
-      <div class="overlay-card">
-        <div class="loader"></div>
-        Conectando… el launcher se cerrará automáticamente.
-      </div>
-    </div>
-
-    <script>
-      const overlay = document.getElementById("overlay");
-
-      document.getElementById("addPathBtn").onclick = async () => {
-        const p = await window.electronAPI.selectCache();
-        if (p) alert("Ruta seleccionada: " + p);
-      };
-
-      document.getElementById("clearCacheBtn").onclick = async () => {
-        const ok = await window.electronAPI.clearCache();
-        alert(
-          ok ? "Caché borrada correctamente." : "No se pudo borrar la caché."
-        );
-      };
-
-      document.getElementById("connectBtn").onclick = async () => {
-        overlay.classList.add("show");
-        const ok = await window.electronAPI.connectToServer();
-        if (!ok) overlay.classList.remove("show");
-      };
-
-      document.getElementById("creditsBtn").onclick = () => {
-        alert("Creado por Zowix 🐱");
-      };
-    </script>
+    <div id="grain"></div>
+    <div id="app"></div>
+    <script src="node_modules/react/umd/react.production.min.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="src/render.js"></script>
   </body>
 </html>

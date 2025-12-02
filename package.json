@@ -2,15 +2,20 @@
   "name": "redencionlauncher",
   "version": "1.0.2",
   "description": "Launcher para RedM",
-  "main": "src/main.obf.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "package-win": "electron-packager . RedencionLauncher --platform=win32 --arch=x64 --icon=favicon.ico --out=build --overwrite"
-
+    "dev": "npm start",
+    "package-win": "electron-packager . RedencionLauncher --platform=win32 --arch=x64 --icon=favicon.ico --out=build --overwrite --electron-version=25.3.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-snowfall": "^2.4.0"
   },
   "devDependencies": {
-    "electron": "^25.3.0",
+    "electron": "^39.2.4",
     "electron-builder": "^26.0.12",
-    "electron-packager": "^15.5.2"
+    "electron-packager": "^17.1.2"
   }
 }
